@@ -1,16 +1,30 @@
 class Mouse {
 
-    constructor(name, favBerry, colour, hunger)
+    constructor(name, favBerry, color, hunger)
 
     {
         this.name = name;
         this.favBerry = favBerry;
-        this.colour = colour;
+        this.color = color;
         this.hunger = hunger;
     }
+
+    eat(favouriteBerry)  //* A mouse eats a berry. Eating a berry decreases hunger by 10. Eating a favourite berry decreases hunger by 15.
+    {
+        if(this.favBerry == favouriteBerry ) 
+        {
+            this.hunger -= 15;
+            return `${this.name} just ate their favourite berry. Their favourite berry is ${favouriteBerry}.`;
+        }
+        else
+        {
+            this.hunger -= 10;
+        }
+    }
+
 }
 
-const pip = new Mouse('Pip', 'blackberry', 'brown', 20);
+const pip = new Mouse('Pip', 'blackberry', 'brown', 30);
 const tilly = new Mouse('Tilly', 'strawberry', 'white', 40);
 const honey = new Mouse('Honey', 'blueberry', 'golden', 25);
 const coco = new Mouse('Coco', 'raspberry', 'dark brown', 30);
@@ -18,11 +32,11 @@ const bonnie = new Mouse('Bonnie', 'cranberry', 'white', 35);
 
 class Berry {
 
-    constructor(name, colour, flavour, rarity)
+    constructor(name, color, flavour, rarity)
 
     {
         this.name = name;
-        this.colour = colour;
+        this.color = color;
         this.flavour = flavour;
         this.rarity = rarity;
     }
@@ -52,3 +66,10 @@ const jim = new Farmer('Jim', 'blackberry', 47, 'Newquay');
 const bill = new Farmer('Billy', 'raspberry', 28, 'Scotland');
 const jen = new Farmer('Jen', 'blueberry', 32, 'Wales');
 const phil = new Farmer('Phil', 'cranberry', 39, 'Kent');
+
+module.exports = 
+{Mouse, Berry, Farmer, 
+pip, tilly, honey, coco, bonnie, strawberry, blackberry, raspberry, blueberry, cranberry, greg, jim, bill, jen, phil 
+}
+
+
